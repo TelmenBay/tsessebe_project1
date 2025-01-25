@@ -17,6 +17,7 @@ body {
   padding: 0 1rem;
 }
 
+/* Info Box */
 .info-box {
   background-color: #fbb22a;
   padding: 2rem;
@@ -41,6 +42,7 @@ body {
   margin: 0 auto;
 }
 
+/* Workshop Cards */
 .workshops-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -48,10 +50,20 @@ body {
 }
 
 .workshop-card {
-  height: 100%;
-  padding: 1.5rem;
-  border-radius: 10px;
   background-color: #fbb22a;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.workshop-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.workshop-content {
+  padding: 1.5rem;
 }
 
 .workshop-card h2 {
@@ -63,15 +75,6 @@ body {
   color: #000;
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
-}
-
-.workshop-card input {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
 }
 
 .workshop-card button {
@@ -122,47 +125,180 @@ body {
   }
 }
 
-.flip-card {
-  background-color: transparent;
-  perspective: 1000px;
-  cursor: pointer;
-  min-height: 500px;
+/* Login Styles */
+.login-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fbb22a;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-form h2 {
+  color: #000;
   text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+  margin-bottom: 1rem;
 }
 
-.flip-card-inner.is-flipped {
-  transform: rotateY(180deg);
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
-.flip-card-front, .flip-card-back {
+.login-form input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.login-form button {
+  padding: 0.8rem;
+  background-color: #450a69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.login-form button:hover {
+  background-color: #6a1b9a;
+}
+
+.error-message {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Add these new styles */
+
+.nav-banner {
+  background-color: #333;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.signup-button {
+  padding: 0.5rem 1.5rem;
+  background-color: #450a69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.signup-button:hover {
+  background-color: #6a1b9a;
+}
+
+.signup-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fbb22a;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.signup-form h2 {
+  color: #000;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.signin-button {
+  padding: 0.5rem 1.5rem;
+  background-color: #333;
+  color: white;
+  border: 1px solid #450a69;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.signin-button:hover {
+  background-color: #450a69;
+}
+
+.signin-dropdown {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 10px;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
-.flip-card-front {
-  background-color: #fbb22a;
+.signin-dropdown form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 250px;
 }
 
-.flip-card-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
+.signin-dropdown input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
 }
 
-.flip-card-back {
-  transform: rotateY(180deg);
-  background-color: #fbb22a;
-  overflow-y: auto;
+.signin-dropdown button {
+  padding: 0.5rem;
+  background-color: #450a69;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.signin-dropdown button:hover {
+  background-color: #6a1b9a;
 }

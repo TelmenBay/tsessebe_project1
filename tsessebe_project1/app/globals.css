@@ -302,3 +302,146 @@ body {
 .signin-dropdown button:hover {
   background-color: #6a1b9a;
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.passcode-modal {
+  background-color: #fbb22a;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.passcode-modal h3 {
+  color: #000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.passcode-modal input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.modal-buttons button:first-child {
+  background-color: #450a69;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #666;
+  color: white;
+}
+
+.modal-buttons button:hover {
+  opacity: 0.9;
+}
+
+.payment-section {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.price-info {
+  color: #000;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.payment-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.payment-button:hover {
+  background-color: #218838;
+}
+
+.divider {
+  color: #000;
+  margin: 1rem 0;
+  position: relative;
+  text-align: center;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background-color: #000;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.passcode-info {
+  color: #000;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.payment-result-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: #fbb22a;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.payment-result-container h1 {
+  color: #450a69;
+  margin-bottom: 1.5rem;
+}
+
+.payment-result-container p {
+  color: #000;
+  margin-bottom: 1rem;
+}

@@ -3,9 +3,12 @@ import { useState, useEffect } from 'react';
 import { auth } from '../firebaseConfig';
 import { onAuthStateChanged } from 'firebase/auth';
 import NavBanner from './components/NavBanner';
+import PasscodeModal from './components/PasscodeModal';
 
 export default function Home() {
   const [user, setUser] = useState(null);
+  const [selectedWorkshop, setSelectedWorkshop] = useState(null);
+  const [showPasscodeModal, setShowPasscodeModal] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -14,6 +17,18 @@ export default function Home() {
 
     return () => unsubscribe();
   }, []);
+
+  const handleWorkshopAccess = (workshopId) => {
+    if (user) {
+      setSelectedWorkshop(workshopId);
+      setShowPasscodeModal(true);
+    }
+  };
+
+  const handlePasscodeSuccess = (workshopId) => {
+    // Here you can redirect to the workshop content or handle access
+    console.log(`Access granted to workshop ${workshopId}`);
+  };
 
   return (
     <>
@@ -37,7 +52,11 @@ When customized for specific groups, the platform and programs are delivered und
                 <li>AI-Powered Cybersecurity Solutions and Best Practices</li>
                 <li>Ethical Considerations in AI and Cybersecurity</li>
               </ul>
-              {user && <button>Access Workshop</button>}
+              {user && (
+                <button onClick={() => handleWorkshopAccess('workshop1')}>
+                  Access Workshop
+                </button>
+              )}
             </div>
           </div>
 
@@ -51,7 +70,11 @@ When customized for specific groups, the platform and programs are delivered und
                 <li>Mental Health Tools and Strategies for Success</li>
                 <li>Effective Communication, Interpersonal Skills, and Advocacy</li>
               </ul>
-              {user && <button>Access Workshop</button>}
+              {user && (
+                <button onClick={() => handleWorkshopAccess('workshop2')}>
+                  Access Workshop
+                </button>
+              )}
             </div>
           </div>
 
@@ -65,10 +88,22 @@ When customized for specific groups, the platform and programs are delivered und
                 <li>Understanding Credit and Debt</li>
                 <li>Entrepreneurship Basics and Intellectual Property</li>
               </ul>
-              {user && <button>Access Workshop</button>}
+              {user && (
+                <button onClick={() => handleWorkshopAccess('workshop3')}>
+                  Access Workshop
+                </button>
+              )}
             </div>
           </div>
         </div>
+
+        {showPasscodeModal && (
+          <PasscodeModal
+            workshopId={selectedWorkshop}
+            onClose={() => setShowPasscodeModal(false)}
+            onAccess={handlePasscodeSuccess}
+          />
+        )}
       </main>
     </>
   );
